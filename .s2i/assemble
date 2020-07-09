@@ -1,0 +1,49 @@
+#!/bin/bash
+set -eo pipefail
+
+# Copy files to correct location, as used by the base image
+
+cp -R /tmp/src/* /home/$NB_USER/work
+
+cd /home/$NB_USER/work
+
+echo MAKE TARGET LIST IS "${S2I_MAKE_TARGETS}"
+
+echo EXTRA REQUIREMENTS ARE:
+cat /home/$NB_USER/work/requirements.txt
+
+## install requirements
+
+#if (( $(wc -l < /home/$NB_USER/work/requirements.txt) > 0 )); then
+#   python3.6 -m pip install -r /home/$NB_USER/work/requirements.txt
+#fi
+
+
+#if [ -f /home/$NB_USER/work/requirements.txt ]; then
+
+#(cd /home/$NB_USER/work && conda install -y --file requirements.txt)
+
+#rm /home/$NB_USER/work/requirements.txt
+
+#fi
+
+#echo INSTALLED REQUIREMENTS 
+## execute make file values. 
+
+echo directory contents are
+
+ls
+
+
+process_each_first() {
+    local IFS=","
+    vals=$1
+    
+    echo "### preprocessing make target $v"
+    
+    for v in $vals; do
+        make ${v}
+    done
+}
+
+process_each_first ${S2I_MAKE_TARGETS}
