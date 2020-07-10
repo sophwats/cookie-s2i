@@ -1,4 +1,4 @@
-FROM jupyter/scipy-notebook:latest
+FROM quay.io/willbenton/s2i-minimal-notebook:3.6
 
 # Switch user to root so we have install privileges 
 
