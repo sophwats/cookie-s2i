@@ -1,5 +1,4 @@
 #!/bin/bash
-set -eo pipefail
 
 # Copy files to correct location, as used by the base image
 
