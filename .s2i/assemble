@@ -1,16 +1,18 @@
 #!/bin/bash
 set -eo pipefail
 
+basedir=/opt/app-root
 # Copy files to correct location, as used by the base image
 
-cp -R /tmp/src/* /home/$NB_USER/work
+mkdir -p $basedir/work
+cp -R /tmp/src/* $basedir/work
 
-cd /home/$NB_USER/work
+cd $basedir/work
 
 echo MAKE TARGET LIST IS "${S2I_MAKE_TARGETS}"
 
 echo EXTRA REQUIREMENTS ARE:
-cat /home/$NB_USER/work/requirements.txt
+cat $basedir/work/requirements.txt
 
 ## install requirements
 
