@@ -1,5 +1,5 @@
-FROM quay.io/willbenton/s2i-minimal-notebook:3.6
-
+#FROM quay.io/willbenton/s2i-minimal-notebook:3.6
+From docker.io/centos/python-36-centos7
 # Switch user to root so we have install privileges 
 
 USER root
