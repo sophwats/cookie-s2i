@@ -48,3 +48,5 @@ process_each_first() {
 }
 
 process_each_first ${S2I_MAKE_TARGETS}
+
+fix-permissions ./
