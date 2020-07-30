@@ -2,4 +2,4 @@
 
 export MAKE_TARGETS=${S2I_MAKE_TARGETS}
 
-exec opt/sms/app/bin/start-notebook.sh
+exec jupyter-notebooks-master/minimal-notebook/start-notebook.sh
