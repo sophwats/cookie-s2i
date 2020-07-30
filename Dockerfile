@@ -1,5 +1,5 @@
 #FROM quay.io/willbenton/s2i-minimal-notebook:3.6
-From docker.io/centos/python-36-centos7
+FROM docker.io/centos/python-36-centos7
 #FROM minimal-notebook:latest
 # Switch user to root so we have install privileges 
 
@@ -32,6 +32,10 @@ LABEL io.k8s.description="Cookie-Cutter s2i builder for Jupyter." \
       io.openshift.s2i.scripts-url="image:///opt/app-root/.s2i/"
 
 # Copy s2i builder scripts for installing Python packeges and copying notebooks and files
+
+ADD https://github.com/sophwats/jupyter-notebooks/archive/master.zip jupyter-notebooks.zip
+RUN unzip jupyter-notebooks.zip
+RUN rm jupyter-notebooks.zip
 
 COPY .s2i /opt/app-root/.s2i
 
