@@ -5,9 +5,9 @@ FROM docker.io/centos/python-36-centos7
 
 USER root
 
-ADD . /opt/sms
+ADD . /opt/app-root
 
-WORKDIR /opt/sms
+WORKDIR /opt/app-root
 
 ENV PYTHON_VERSION=3.6 \
     PATH=$HOME/.local/bin/:$PATH \
